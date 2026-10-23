@@ -59,3 +59,19 @@ export const initialBanks = [
   { id: 'hdfc', bank: 'HDFC Bank', short: 'HDFC', account: '•••• 9207', verified: true, kind: 'Salary account' },
   { id: 'icici', bank: 'ICICI Bank', short: 'ICICI', account: '•••• 4418', verified: false, kind: 'Savings' },
 ]
+
+const participant = (id, name, share, settled = false) => ({ id, userId: id, participantName: name, shareAmount: share, settlementStatus: settled ? 'SETTLED' : 'PENDING', settledAt: settled ? daysAgo(2, 15) : null })
+
+export const initialSplitBills = [
+  { splitId: 'split-goa', title: 'Goa Trip', totalAmount: 12000, createdBy: 'john', paidBy: 'john', splitType: 'equal', createdAt: daysAgo(8), description: 'Villa, cabs and activities', status: 'PENDING', participants: [participant('john', 'You', 3000, true), participant('priya', 'Priya Mehta', 3000, true), participant('rohan', 'Rohan Verma', 3000), participant('ananya', 'Ananya Gupta', 3000)] },
+  { splitId: 'split-pizza', title: 'Pizza Night', totalAmount: 1800, createdBy: 'john', paidBy: 'john', splitType: 'equal', createdAt: daysAgo(4), description: 'Friday night at Joeys', status: 'PENDING', participants: [participant('john', 'You', 600, true), participant('kabir', 'Kabir Singh', 600), participant('sneha', 'Sneha Iyer', 600)] },
+  { splitId: 'split-groceries', title: 'Hostel Groceries', totalAmount: 2400, createdBy: 'priya', paidBy: 'priya', splitType: 'equal', createdAt: daysAgo(12), description: 'Monthly shared supplies', status: 'PENDING', participants: [participant('priya', 'Priya Mehta', 600, true), participant('john', 'You', 600), participant('rohan', 'Rohan Verma', 600), participant('aditya', 'Aditya Nair', 600)] },
+  { splitId: 'split-movie', title: 'Movie Tickets', totalAmount: 1200, createdBy: 'john', paidBy: 'john', splitType: 'equal', createdAt: daysAgo(2), description: 'Saturday movie at INOX', status: 'SETTLED', participants: [participant('john', 'You', 400, true), participant('ishita', 'Ishita Kapoor', 400, true), participant('rahul', 'Rahul Joshi', 400, true)] },
+]
+
+export const initialMoneyJars = [
+  { jarId: 'jar-macbook', jarName: 'New MacBook', targetAmount: 85000, savedAmount: 42500, targetDate: '2027-04-15', category: 'Gadgets', icon: '💻', description: 'A reliable laptop for work and learning', status: 'ACTIVE', createdAt: daysAgo(30), contributions: [{ id: 'contribution-1', amount: 42500, contributionType: 'DEPOSIT', createdAt: daysAgo(10) }] },
+  { jarId: 'jar-goa', jarName: 'Goa Vacation', targetAmount: 30000, savedAmount: 22500, targetDate: '2027-01-20', category: 'Travel', icon: '🏝️', description: 'Beach time with friends', status: 'ACTIVE', createdAt: daysAgo(24), contributions: [{ id: 'contribution-2', amount: 22500, contributionType: 'DEPOSIT', createdAt: daysAgo(7) }] },
+  { jarId: 'jar-emergency', jarName: 'Emergency Fund', targetAmount: 50000, savedAmount: 50000, targetDate: '2026-12-31', category: 'Safety', icon: '🛡️', description: 'A little extra peace of mind', status: 'COMPLETED', createdAt: daysAgo(80), contributions: [{ id: 'contribution-3', amount: 50000, contributionType: 'DEPOSIT', createdAt: daysAgo(20) }] },
+  { jarId: 'jar-birthday', jarName: 'Birthday Shopping', targetAmount: 10000, savedAmount: 3500, targetDate: '2026-11-30', category: 'Shopping', icon: '🎁', description: 'Gifts and a special dinner', status: 'ACTIVE', createdAt: daysAgo(14), contributions: [{ id: 'contribution-4', amount: 3500, contributionType: 'DEPOSIT', createdAt: daysAgo(3) }] },
+]
